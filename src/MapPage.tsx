@@ -57,17 +57,18 @@ function Buttons() {
     >
       <button
         onClick={() => {
+          console.time("addGeoJson");
           map.data.addGeoJson(dummyGeoJson);
-          console.log(dummyGeoJson);
-          console.log("addGeoJson");
+          console.timeEnd("addGeoJson");
         }}
       >
         데이터 표시
       </button>
       <button
         onClick={() => {
+          console.time("removeGeoJson");
           map.data.removeGeoJson(dummyGeoJson);
-          console.log("removeGeoJson");
+          console.timeEnd("removeGeoJson");
         }}
       >
         데이터 삭제
