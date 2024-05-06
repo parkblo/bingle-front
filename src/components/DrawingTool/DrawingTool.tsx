@@ -38,6 +38,7 @@ function DrawingTool() {
   const handleClick = (e: any) => {
     if (cnt === 0) {
       firstPoint = e.coord;
+      dataCircle.setCenter(new map.LatLng(0, 0));
       midCircle.setCenter(firstPoint);
       cnt++;
     } else {
