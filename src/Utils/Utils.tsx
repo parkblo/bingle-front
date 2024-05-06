@@ -19,7 +19,6 @@ const getRadius = (pointA: Coord, pointB: Coord) => {
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
   const distance = earthRadius * c;
-  console.log(distance);
   return distance;
 };
 
