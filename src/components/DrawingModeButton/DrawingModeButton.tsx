@@ -12,9 +12,13 @@ function DrawingModeButton() {
     setDrawingMode(!drawingMode);
   };
 
+  const getButtonStyle = () => {
+    return drawingMode ? styles.activeButtonContainer : styles.buttonContainer;
+  };
+
   return (
     <>
-      <Button sx={styles.buttonContainer} onClick={handleClick}>
+      <Button sx={getButtonStyle()} onClick={handleClick}>
         <img src={DrawToolImage} style={styles.image}></img>
       </Button>
       {drawingMode && <DrawingTool />}
