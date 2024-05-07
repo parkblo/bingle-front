@@ -6,16 +6,105 @@ import {
   Marker,
   Overlay,
 } from "react-naver-maps";
+import { Box, Button, Divider, TextField } from "@mui/material";
+import React from "react";
+
 import useStore from "components/Store/Store";
 import getRadius from "Utils/Utils";
 import colors from "constants/colors";
 import limits from "constants/limits";
+import styles from "./DrawingToolStyles";
+
+let currentRad = 0;
+let cnt = 0;
+
+function InformationBox() {
+  const { radiusData, setRadiusData } = useStore((state) => state);
+  const [position, setPosition] = React.useState({ x: 0, y: 0 });
+  const [fixed, setFixed] = React.useState(false);
+  const map = useNavermaps();
+
+  const updateMousePosition = (ev: MouseEvent) => {
+    setPosition({ x: ev.clientX, y: ev.clientY });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const rad = Number(e.target.value);
+    setRadiusData(Math.floor(rad * 100) / 100);
+  };
+
+  React.useEffect(() => {
+    if (cnt < 2) {
+      window.addEventListener("mousemove", updateMousePosition);
+      setFixed(false);
+    } else {
+      setFixed(true);
+      window.removeEventListener("mousemove", updateMousePosition);
+    }
+
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, [cnt]);
+
+  return (
+    <Box
+      sx={{
+        top: position.y + 20,
+        left: position.x + 20,
+        ...styles.informationContainer,
+      }}
+    >
+      <Box sx={styles.radiusContainer}>
+        <Box sx={styles.labelText}>반경</Box>
+        <Box sx={styles.inputArea}>
+          {/* {fixed ? (
+          <>
+            <TextField
+              variant="standard"
+              defaultValue={currentRad.toFixed(2)}
+              value={radiusData}
+              onChange={handleChange}
+              type="number"
+            />
+          </>
+        ) : (
+          currentRad.toFixed(2)
+        )} */}
+          {currentRad.toFixed(2)}
+        </Box>
+        <Box sx={styles.labelText}>m</Box>
+      </Box>
+      <Box sx={styles.buttonContainer}>
+        <Button sx={styles.button}>데이터 표시하기</Button>
+      </Box>
+    </Box>
+  );
+}
 
 function DrawingTool() {
-  const { drawingMode, setDrawingMode } = useStore((state) => state);
+  const { radiusData, setRadiusData, drawingMode, setDrawingMode } = useStore(
+    (state) => state
+  );
   const map = useNavermaps();
-  let cnt = 0;
   let firstPoint: any, secondPoint: any;
+
+  React.useEffect(() => {
+    cnt = 0;
+    currentRad = 0;
+  }, []);
+
+  React.useEffect(() => {
+    const testCircle = new map.Circle({
+      center: new map.LatLng(37.5514703, 127.0738831),
+      radius: radiusData,
+      fillColor: colors.sub,
+      fillOpacity: 0.15,
+      strokeColor: colors.main,
+      strokeOpacity: 1,
+      strokeWeight: 1,
+    });
+  }, [radiusData]);
 
   const pointerCircle = new map.Circle({
     radius: 7,
@@ -65,13 +154,16 @@ function DrawingTool() {
   const handleMove = (e: any) => {
     if (cnt === 0) {
       pointerCircle.setCenter(e.coord);
-    }
-    if (cnt === 1) {
+    } else if (cnt === 1) {
+      pointerCircle.setVisible(true);
+      pointerLine.setVisible(true);
       pointerLine.setPath([firstPoint, e.coord]);
       drawingCircle.setCenter(firstPoint);
       pointerCircle.setCenter(e.coord);
 
       const rad = getRadius(firstPoint, e.coord);
+      currentRad = rad > limits.radius ? limits.radius : rad;
+
       const drawingCircleRad = rad > limits.radius ? limits.radius : rad;
       drawingCircle.setRadius(drawingCircleRad);
     }
@@ -91,6 +183,8 @@ function DrawingTool() {
       const dataCircleRad = rad > limits.radius ? limits.radius : rad;
       dataCircle.setCenter(firstPoint);
       dataCircle.setRadius(dataCircleRad);
+      currentRad = dataCircleRad;
+      setRadiusData(Math.floor(currentRad * 100) / 100);
 
       pointerCircle.setVisible(false);
       pointerLine.setVisible(false);
@@ -106,8 +200,10 @@ function DrawingTool() {
       <Overlay element={pointerLine} />
       <Overlay element={drawingCircle} />
       <Overlay element={boundaryCircle} />
+
       <Listener type="mousemove" listener={handleMove} />
       <Listener type="click" listener={handleClick} />
+      <InformationBox />
     </>
   );
 }
