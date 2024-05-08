@@ -1,5 +1,6 @@
 import { Container, NaverMap, useNavermaps } from "react-naver-maps";
 import DrawingModeButton from "components/DrawingModeButton/DrawingModeButton";
+import DataSelect from "components/DataSelect/DataSelect";
 
 function MapPage() {
   const map = useNavermaps();
@@ -11,6 +12,7 @@ function MapPage() {
         defaultZoom={15}
       >
         <DrawingModeButton />
+        <DataSelect />
       </NaverMap>
     </Container>
   );

@@ -29,8 +29,9 @@ function InformationBox() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const rad = Number(e.target.value);
-    setRadiusData(Math.floor(rad * 100) / 100);
+    let rad = Math.floor(Number(e.target.value) * 100) / 100;
+    rad = rad > limits.radius ? limits.radius : rad;
+    setRadiusData(rad);
   };
 
   React.useEffect(() => {
