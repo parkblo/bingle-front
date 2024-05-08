@@ -14,6 +14,7 @@ import getRadius from "Utils/Utils";
 import colors from "constants/colors";
 import limits from "constants/limits";
 import styles from "./DrawingToolStyles";
+import RoadData from "components/RoadData/RoadData";
 
 let currentRad = 0;
 let cnt = 0;
@@ -22,6 +23,7 @@ function InformationBox() {
   const { radiusData, setRadiusData } = useStore((state) => state);
   const [position, setPosition] = React.useState({ x: 0, y: 0 });
   const [fixed, setFixed] = React.useState(false);
+  const [showRoadData, setShowRoadData] = React.useState(false);
   const map = useNavermaps();
 
   const updateMousePosition = (ev: MouseEvent) => {
@@ -49,17 +51,18 @@ function InformationBox() {
   }, [cnt]);
 
   return (
-    <Box
-      sx={{
-        top: position.y + 20,
-        left: position.x + 20,
-        ...styles.informationContainer,
-      }}
-    >
-      <Box sx={styles.radiusContainer}>
-        <Box sx={styles.labelText}>반경</Box>
-        <Box sx={styles.inputArea}>
-          {/* {fixed ? (
+    <>
+      <Box
+        sx={{
+          top: position.y + 20,
+          left: position.x + 20,
+          ...styles.informationContainer,
+        }}
+      >
+        <Box sx={styles.radiusContainer}>
+          <Box sx={styles.labelText}>반경</Box>
+          <Box sx={styles.inputArea}>
+            {/* {fixed ? (
           <>
             <TextField
               variant="standard"
@@ -72,19 +75,23 @@ function InformationBox() {
         ) : (
           currentRad.toFixed(2)
         )} */}
-          {currentRad.toFixed(2)}
+            {currentRad.toFixed(2)}
+          </Box>
+          <Box sx={styles.labelText}>m</Box>
         </Box>
-        <Box sx={styles.labelText}>m</Box>
+        <Box sx={styles.buttonContainer}>
+          <Button sx={styles.button} onClick={() => setShowRoadData(true)}>
+            데이터 표시하기
+          </Button>
+        </Box>
       </Box>
-      <Box sx={styles.buttonContainer}>
-        <Button sx={styles.button}>데이터 표시하기</Button>
-      </Box>
-    </Box>
+      {showRoadData && <RoadData />}
+    </>
   );
 }
 
 function DrawingTool() {
-  const { radiusData, setRadiusData, drawingMode, setDrawingMode } = useStore(
+  const { radiusData, setRadiusData, setCenterCoord } = useStore(
     (state) => state
   );
   const map = useNavermaps();
@@ -186,6 +193,7 @@ function DrawingTool() {
       dataCircle.setRadius(dataCircleRad);
       currentRad = dataCircleRad;
       setRadiusData(Math.floor(currentRad * 100) / 100);
+      setCenterCoord({ latitude: firstPoint.y, longitude: firstPoint.x });
 
       pointerCircle.setVisible(false);
       pointerLine.setVisible(false);
