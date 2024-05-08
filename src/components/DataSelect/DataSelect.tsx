@@ -10,7 +10,7 @@ import styles from "./DataSelectStyles";
 import dataicon from "assets/images/dataicon.png";
 
 function DataSelect() {
-  const [dataType, setDataType] = React.useState("");
+  const [dataType, setDataType] = React.useState("10"); // TODO: 기본값 바꾸기
   const [topN, setTopN] = React.useState(100);
 
   const handleSelectChange = (event: SelectChangeEvent) => {

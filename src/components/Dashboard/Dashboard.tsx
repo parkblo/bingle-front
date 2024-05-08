@@ -13,12 +13,12 @@ function Dashboard() {
 
   const getDashboardStyle = () => {
     return dashboardOpen
-      ? styles.dashboardContainer
-      : styles.dashboardContainer.open;
+      ? styles.dashboardContainer.open
+      : styles.dashboardContainer;
   };
 
   const getImageSrc = () => {
-    return dashboardOpen ? openicon : closeicon;
+    return dashboardOpen ? closeicon : openicon;
   };
 
   const handleButtonClick = () => {

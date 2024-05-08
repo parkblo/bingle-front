@@ -6,7 +6,7 @@ let styles = {
     height: "50px",
     position: "absolute",
     zIndex: "1",
-    boxShadow: "7",
+    boxShadow: "5",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

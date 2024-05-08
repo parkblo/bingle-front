@@ -1,36 +1,36 @@
-import { transform } from "typescript";
+import colors from "constants/colors";
 
 const styles = {
-  selectContainer: {
-    width: "350px",
+  searchContainer: {
+    width: "360px",
     height: "50px",
     borderRadius: "50px",
     backgroundColor: "white",
     position: "absolute",
     zIndex: "1",
-    bottom: "40px",
+    top: "20px",
     left: "50%",
     transform: "translateX(-50%)",
     boxShadow: "5",
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "space-between",
+    paddingLeft: "20px",
     alignItems: "center",
   },
-  select: {
-    width: "150px",
-    height: "80%",
+  inputArea: {
+    width: "300px",
+    fontSize: "20px",
+  },
+  buttonContainer: {
+    borderRadius: "50px",
+    ".MuiTouchRipple-child": {
+      backgroundColor: colors.main,
+    },
   },
   image: {
     height: "30px",
     width: "30px",
     marginRight: "5px",
-  },
-  labelText: { fontSize: "12px" },
-  inputArea: {
-    width: "45px",
-    fontSize: "20px",
-    marginLeft: "10px",
-    marginRight: "10px",
   },
 };
 
