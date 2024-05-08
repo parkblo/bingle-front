@@ -8,7 +8,7 @@ import MapPage from "./components/MapPage/MapPage";
 function App() {
   return (
     <div className="App">
-      <NavermapsProvider ncpClientId={secret}>
+      <NavermapsProvider ncpClientId={secret} submodules={["geocoder"]}>
         <MapPage />
       </NavermapsProvider>
     </div>

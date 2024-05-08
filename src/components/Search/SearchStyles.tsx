@@ -2,7 +2,7 @@ import colors from "constants/colors";
 
 const styles = {
   searchContainer: {
-    width: "360px",
+    width: "450px",
     height: "50px",
     borderRadius: "50px",
     backgroundColor: "white",
@@ -18,7 +18,7 @@ const styles = {
     alignItems: "center",
   },
   inputArea: {
-    width: "300px",
+    width: "400px",
     fontSize: "20px",
   },
   buttonContainer: {
