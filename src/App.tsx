@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <NavermapsProvider
-        ncpClientId={process.env.REACT_APP_NAVER_CLIENT_ID || ""}
+        ncpClientId= {process.env.REACT_APP_NAVER_CLIENT_ID || ""}
         submodules={["geocoder"]}
       >
         <MapPage />
