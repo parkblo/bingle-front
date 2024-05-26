@@ -10,7 +10,7 @@ import { Box, Button, Divider, TextField } from "@mui/material";
 import React from "react";
 
 import useStore from "components/Store/Store";
-import getRadius from "Utils/Utils";
+import { getRadius } from "Utils/Utils";
 import colors from "constants/colors";
 import limits from "constants/limits";
 import styles from "./DrawingToolStyles";
