@@ -7,12 +7,13 @@ function RoadData() {
   );
 
   React.useEffect(() => {
-    console.log({
+    // 통신 함수 작성
+    const requestProps = {
       centerCoord: centerCoord,
       radius: radiusData,
       topNP: topN,
       roadDataType: dataType,
-    });
+    };
   }, []);
 
   return <></>;
