@@ -1,4 +1,6 @@
-const colors = {
+const colors : {
+  [key: string]: string;
+} = {
   main: "#00C98A",
   sub: "#84EEC5",
 
