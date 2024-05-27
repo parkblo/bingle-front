@@ -173,22 +173,22 @@ import { ResponsivePie } from "@nivo/pie";
 import usePieChartData from './PieChartData'; 
 
 const colors = {
-  A: "0000FF",
-  B: "4169E1",
-  C: "00BFFF",
-  D: "00FFFF",
-  E: "00FA9A",
-  F: "00FF00",
-  G: "7FFF00",
-  H: "7CFC00",
-  I: "ADFF2F",
-  J: "9ACD32",
-  K: "FFFF00",
-  L: "FFD700",
-  M: "FFA500",
-  N: "FF4500",
-  O: "FF6347",
-  P: "FF0000"
+  A: "#0000FF",
+  B: "#4169E1",
+  C: "#00BFFF",
+  D: "#00FFFF",
+  E: "#00FA9A",
+  F: "#00FF00",
+  G: "#7FFF00",
+  H: "#7CFC00",
+  I: "#ADFF2F",
+  J: "#9ACD32",
+  K: "#FFFF00",
+  L: "#FFD700",
+  M: "#FFA500",
+  N: "#FF4500",
+  O: "#FF6347",
+  P: "#FF0000"
 };
 
 const MyResponsivePie = () => {
@@ -196,7 +196,8 @@ const MyResponsivePie = () => {
     return (
             <ResponsivePie
                 data={data}
-                margin={{ right: 100, bottom: 200, left: 100 }}
+                margin={{ top : -200, right: 120, bottom: 200, left: 120 }}
+                colors={{ datum: 'data.color' }}
                 innerRadius={0.5}
                 padAngle={0.7}
                 cornerRadius={3}
@@ -318,15 +319,15 @@ const MyResponsivePie = () => {
                     anchor: "bottom",
                     direction: "column",
                     justify: false,
-                    translateX: 0,
-                    translateY: 300,
-                    itemsSpacing: 15,
-                    itemWidth: 100,
-                    itemHeight: 18,
+                    translateX: -20,
+                    translateY: 100,
+                    itemsSpacing: 8,
+                    itemWidth: 50,
+                    itemHeight: 15,
                     itemTextColor: "#999",
                     itemDirection: "left-to-right",
                     itemOpacity: 1,
-                    symbolSize: 20,
+                    symbolSize: 18,
                     symbolShape: "circle",
                     effects: [
                       {
