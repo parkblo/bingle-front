@@ -188,7 +188,10 @@ const colors = {
   M: "#FFA500",
   N: "#FF4500",
   O: "#FF6347",
-  P: "#FF0000"
+  P: "#FF0000",
+  Q: "#FF8C00",
+  R: "#008000",
+  S: "#8A2BE2"
 };
 
 const MyResponsivePie = () => {
@@ -219,67 +222,67 @@ const MyResponsivePie = () => {
                 fill={[
                     {
                         match: {
-                            id: "Traffic_color1|BUS_DIST_COLOR1|SUB_AREA_COLOR0|SUB_DIST_COLOR1|IND_COLOR1"
+                            id: "Traffic_color1|BUS_DIST_COLOR9|SUB_AREA_COLOR|SUB_DIST_COLOR9|IND_COLOR9"
                         },
                         id: colors.A
                       },
                     {
                         match: {
-                            id: "Traffic_color2|BUS_DIST_COLOR2|SUB_AREA_COLOR|SUB_DIST_COLOR2|IND_COLOR2"
+                            id: "Traffic_color2"
                         },
                         id: colors.B
                     },
                     {
                       match: {
-                          id: "Traffic_color3|BUS_DIST_COLOR3|SUB_DIST_COLOR3|IND_COLOR3"
+                          id: "Traffic_color3|BUS_DIST_COLOR8|SUB_DIST_COLOR8|IND_COLOR8"
                       },
                       id: colors.C
                   },
                   {
                     match: {
-                        id: "Traffic_color4|BUS_DIST_COLOR4|SUB_DIST_COLOR4|IND_COLOR4"
+                        id: "Traffic_color4|BUS_DIST_COLOR7|SUB_DIST_COLOR7|IND_COLOR7"
                     },
                     id: colors.D
                 },
                 {
                   match: {
-                      id: "Traffic_color5|BUS_DIST_COLOR5|SUB_DIST_COLOR5|IND_COLOR5"
+                      id: "Traffic_color5"
                   },
                   id: colors.E
                 },
               {
                 match: {
-                    id: "Traffic_color6|BUS_DIST_COLOR6|SUB_DIST_COLOR6|IND_COLOR6"
+                    id: "Traffic_color6"
                 },
                 id: colors.F
                 },
               {
                 match: {
-                    id: "Traffic_color7|BUS_DIST_COLOR7|SUB_DIST_COLOR7|IND_COLOR7"
+                    id: "Traffic_color7"
                 },
                 id: colors.G
               },
               {
                 match: {
-                    id: "Traffic_color8|BUS_DIST_COLOR8|SUB_DIST_COLOR8|IND_COLOR8"
+                    id: "Traffic_color8"
                 },
                 id: colors.H
               },
               {
                 match: {
-                    id: "Traffic_color9|BUS_DIST_COLOR9|SUB_DIST_COLOR9|IND_COLOR9"
+                    id: "Traffic_color9|BUS_DIST_COLOR5|SUB_DIST_COLOR5|IND_COLOR5"
                 },
                 id: colors.I
               },
               {
                 match: {
-                    id: "Traffic_color10|BUS_DIST_COLOR10|SUB_DIST_COLOR10|IND_COLOR10"
+                    id: "Traffic_color10"
                 },
                 id: colors.J
               },
               {
                 match: {
-                    id: "Traffic_color11"
+                    id: "Traffic_color11|BUS_DIST_COLOR4|SUB_DIST_COLOR4|IND_COLOR4"
                 },
                 id: colors.K
               },
@@ -291,7 +294,7 @@ const MyResponsivePie = () => {
               },
               {
                 match: {
-                    id: "Traffic_color13"
+                    id: "Traffic_color13|BUS_DIST_COLOR3|SUB_DIST_COLOR3|IND_COLOR3"
                 },
                 id: colors.M
               },
@@ -309,10 +312,28 @@ const MyResponsivePie = () => {
               },
               {
                 match: {
-                    id: "Traffic_color16"
+                    id: "Traffic_color16|BUS_DIST_COLOR1|SUB_AREA_COLOR0|SUB_DIST_COLOR1|IND_COLOR1"
                 },
                 id: colors.P
               },
+              {
+                match: {
+                    id: "BUS_DIST_COLOR2|SUB_DIST_COLOR2|IND_COLOR2"
+                },
+                id: colors.Q
+            },
+            {
+              match: {
+                  id: "BUS_DIST_COLOR6|SUB_DIST_COLOR6|IND_COLOR6"
+              },
+              id: colors.R
+          },
+          {
+            match: {
+                id: "BUS_DIST_COLOR10|SUB_DIST_COLOR10|IND_COLOR10"
+            },
+            id: colors.S
+        },
                 ]}
                 legends={[
                   {
