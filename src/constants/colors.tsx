@@ -56,7 +56,7 @@ const colors : {
   IND_COLOR8:"#00BFFF",
   IND_COLOR9:"#0000FF",
   IND_COLOR10:"#8A2BE2",
-        
+    
   example: "#FF0000",
 };
 
