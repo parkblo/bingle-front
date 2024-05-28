@@ -24,9 +24,9 @@ export function getRadius(pointA: Coord, pointB: Coord) {
   return distance;
 }
 
-function getColorCode(colorId: string) {
+export function getColorCode(colorId: string) {
   // TODO: colorId와 색상코드를 매치하는 조건문
-  return colors.example;
+  return colors[colorId] || colors.error;
 }
 
 export function convertToGeoJson(originData: any) {
@@ -42,8 +42,9 @@ export function convertToGeoJson(originData: any) {
         mantle_properties: {
           strokeColor: getColorCode(road.colorId),
           strokeOpacity: 1,
-          strokeWeight: 3,
+          strokeWeight: 4.5,
           strokeStyle: "solid",
+          strokeLineCap: "round",
           fillOpacity: 0.7,
           visible: true,
         },
