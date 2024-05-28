@@ -6,6 +6,7 @@ interface Store {
   radiusData: number;
   dataType: string;
   topN: number;
+  roadInfo: { average: number; rangePercentage: [] };
   centerCoord: { latitude: number; longitude: number };
   setDrawingMode: (mode: boolean) => void;
   setRadiusData: (radiusData: number) => void;
@@ -13,6 +14,7 @@ interface Store {
   setDataType: (dataType: string) => void;
   setTopN: (topN: number) => void;
   setCenterCoord: (coord: { latitude: number; longitude: number }) => void;
+  setRoadInfo: (info: { average: number; rangePercentage: [] }) => void;
 }
 
 const useStore = create<Store>((set) => ({
@@ -22,6 +24,7 @@ const useStore = create<Store>((set) => ({
   dataType: "NACH_R400M",
   topN: 100,
   centerCoord: { latitude: 0, longitude: 0 },
+  roadInfo: { average: 0, rangePercentage: [] },
   setDrawingMode: (mode: boolean) => set({ drawingMode: mode }),
   setRadiusData: (radius: number) => set({ radiusData: radius }),
   setDashboardOpen: (open: boolean) => set({ dashboardOpen: open }),
@@ -29,6 +32,8 @@ const useStore = create<Store>((set) => ({
   setTopN: (topN: number) => set({ topN: topN }),
   setCenterCoord: (coord: { latitude: number; longitude: number }) =>
     set({ centerCoord: coord }),
+  setRoadInfo: (info: { average: number; rangePercentage: [] }) =>
+    set({ roadInfo: info }),
 }));
 
 export default useStore;

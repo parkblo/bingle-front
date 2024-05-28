@@ -16,11 +16,32 @@ interface RequestProps {
   roadDataType: string;
 }
 
+interface RangePercentage {
+  start: number;
+  end: number;
+  percentage: number;
+}
+
+interface Info {
+  average: number;
+  rangePercentage: RangePercentage[];
+}
+
+interface Road {
+  coords: string;
+  colorId: string;
+}
+
+interface RoadDataTypes {
+  roads: Road[];
+  info: Info;
+}
+
 function RoadData() {
-  const [roadData, setRoadData] = React.useState();
+  const [roadData, setRoadData] = React.useState<RoadDataTypes | null>(null);
   const [requestProps, setRequestProps] = React.useState<RequestProps>();
-  const { centerCoord, radiusData, topN, dataType } = useStore(
-    (state) => state
+  const { centerCoord, radiusData, topN, dataType, setRoadInfo } = useStore(
+    (state: any) => state
   );
   const map = useMap();
 
@@ -50,15 +71,12 @@ function RoadData() {
 
   React.useEffect(() => {
     if (roadData) {
-      console.log("표시시작");
-      console.log(roadData);
+      setRoadInfo(roadData.info);
       const geoJson = convertToGeoJson(roadData);
-      console.log(geoJson);
       map.data.addGeoJson(geoJson, true);
     }
 
     return () => {
-      console.log("표시종료");
       if (roadData) {
         map.data.removeGeoJson(convertToGeoJson(roadData));
       }
