@@ -20,7 +20,7 @@ let currentRad = 0;
 let cnt = 0;
 
 function InformationBox() {
-  const { radiusData, setRadiusData } = useStore((state) => state);
+  const { radiusData, setRadiusData } = useStore((state: any) => state);
   const [position, setPosition] = React.useState({ x: 0, y: 0 });
   const [fixed, setFixed] = React.useState(false);
   const [showRoadData, setShowRoadData] = React.useState(false);
@@ -92,7 +92,7 @@ function InformationBox() {
 
 function DrawingTool() {
   const { radiusData, setRadiusData, setCenterCoord } = useStore(
-    (state) => state
+    (state: any) => state
   );
   const map = useNavermaps();
   let firstPoint: any, secondPoint: any;
@@ -101,18 +101,6 @@ function DrawingTool() {
     cnt = 0;
     currentRad = 0;
   }, []);
-
-  React.useEffect(() => {
-    const testCircle = new map.Circle({
-      center: new map.LatLng(37.5514703, 127.0738831),
-      radius: radiusData,
-      fillColor: colors.sub,
-      fillOpacity: 0.15,
-      strokeColor: colors.main,
-      strokeOpacity: 1,
-      strokeWeight: 1,
-    });
-  }, [radiusData]);
 
   const pointerCircle = new map.Circle({
     radius: 7,
@@ -130,7 +118,7 @@ function DrawingTool() {
   const drawingCircle = new map.Circle({
     radius: 0,
     fillColor: colors.sub,
-    fillOpacity: 0.15,
+    fillOpacity: 0.1,
     strokeColor: colors.main,
     strokeOpacity: 1,
     strokeWeight: 1,
@@ -153,9 +141,9 @@ function DrawingTool() {
   const dataCircle = new map.Circle({
     radius: 0,
     fillColor: colors.sub,
-    fillOpacity: 0.15,
+    fillOpacity: 0.1,
     strokeColor: colors.main,
-    strokeOpacity: 1,
+    strokeOpacity: 0.2,
     strokeWeight: 1,
   });
 
@@ -197,6 +185,8 @@ function DrawingTool() {
 
       pointerCircle.setVisible(false);
       pointerLine.setVisible(false);
+      drawingCircle.setVisible(false);
+      boundaryCircle.setVisible(false);
       cnt++;
     }
   };
