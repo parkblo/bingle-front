@@ -17,31 +17,31 @@
 /*const data = [
   {
     id: "1",
-    label: "elixir",
+    label: "a",
     value: 198,
     color: "hsl(134, 70%, 50%)",
   },
   {
     id: "2",
-    label: "lisp",
+    label: "b",
     value: 400,
     color: "hsl(287, 70%, 50%)",
   },
   {
     id: "3",
-    label: "java",
+    label: "c",
     value: 225,
     color: "hsl(261, 70%, 50%)",
   },
   {
     id: "4",
-    label: "php",
+    label: "d",
     value: 585,
     color: "hsl(324, 70%, 50%)",
   },
   {
     id: "5",
-    label: "css",
+    label: "e",
     value: 364,
     color: "hsl(228, 70%, 50%)",
   },

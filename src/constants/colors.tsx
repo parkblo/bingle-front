@@ -3,7 +3,7 @@ const colors : {
 } = {
   main: "#00C98A",
   sub: "#84EEC5",
-
+  
   Traffic_color1:"#0000FF",
   Traffic_color2:"#4169E1",
   Traffic_color3:"#00BFFF",
@@ -56,6 +56,8 @@ const colors : {
   IND_COLOR8:"#00BFFF",
   IND_COLOR9:"#0000FF",
   IND_COLOR10:"#8A2BE2",
+    
+  example: "#FF0000",
 };
 
 export default colors;

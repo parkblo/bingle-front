@@ -1,9 +1,11 @@
+import colors from "constants/colors";
+
 interface Coord {
   y: number;
   x: number;
 }
 
-const getRadius = (pointA: Coord, pointB: Coord) => {
+export function getRadius(pointA: Coord, pointB: Coord) {
   const earthRadius = 6371e3; // 지구의 반지름(미터)
   const lat1 = pointA.y * (Math.PI / 180);
   const lat2 = pointB.y * (Math.PI / 180);
@@ -20,6 +22,36 @@ const getRadius = (pointA: Coord, pointB: Coord) => {
 
   const distance = earthRadius * c;
   return distance;
-};
+}
 
-export default getRadius;
+function getColorCode(colorId: string) {
+  // TODO: colorId와 색상코드를 매치하는 조건문
+  return colors.example;
+}
+
+export function convertToGeoJson(originData: any) {
+  return {
+    type: "FeatureCollection",
+    features: originData.roads.map((road: any) => ({
+      type: "Feature",
+      geometry: {
+        type: "MultiLineString",
+        mantle_properties: {
+          strokeColor: getColorCode(road.colorId),
+          strokeOpacity: 1,
+          strokeWeight: 3,
+          strokeStyle: "solid",
+          fillOpacity: 0.7,
+          visible: true,
+        },
+        coordinates: [
+          road.coords
+            .replace("MULTILINESTRING((", "")
+            .replace("))", "")
+            .split(",")
+            .map((coord: any) => coord.split(" ").map(Number)),
+        ],
+      },
+    })),
+  };
+}

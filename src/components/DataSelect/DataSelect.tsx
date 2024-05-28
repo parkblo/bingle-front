@@ -6,12 +6,11 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import { Divider, TextField } from "@mui/material";
 import styles from "./DataSelectStyles";
-
+import useStore from "components/Store/Store";
 import dataicon from "assets/images/dataicon.png";
 
 function DataSelect() {
-  const [dataType, setDataType] = React.useState("10"); // TODO: 기본값 바꾸기
-  const [topN, setTopN] = React.useState(100);
+  const { dataType, setDataType, topN, setTopN } = useStore((state) => state);
 
   const handleSelectChange = (event: SelectChangeEvent) => {
     setDataType(event.target.value as string);
@@ -37,12 +36,12 @@ function DataSelect() {
         disableUnderline
         sx={styles.select}
       >
-        <MenuItem value={10}>NACH</MenuItem>
-        <MenuItem value={20}>NAIN</MenuItem>
-        <MenuItem value={30}>버스정류장 거리</MenuItem>
-        <MenuItem value={40}>지하철 역 거리</MenuItem>
-        <MenuItem value={50}>역세권 여부</MenuItem>
-        <MenuItem value={60}>대표업종</MenuItem>
+        <MenuItem value={"NACH_R400M"}>NACH</MenuItem>
+        <MenuItem value={"NAIN_R400M"}>NAIN</MenuItem>
+        <MenuItem value={"BUS_DISTANCE"}>버스정류장 거리</MenuItem>
+        <MenuItem value={"SUBWAY_DISTANCE"}>지하철 역 거리</MenuItem>
+        <MenuItem value={"STN_AREA"}>역세권 여부</MenuItem>
+        <MenuItem value={"MAIN_SG"}>대표업종</MenuItem>
       </Select>
       <Box sx={{ marginLeft: "20px" }}></Box>
       <Divider orientation="vertical" flexItem />
