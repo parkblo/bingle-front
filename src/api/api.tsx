@@ -7,9 +7,13 @@ interface requestParams {
   roadDataType: string;
 }
 
-export default async function getRoadData(requestProps: requestParams) {
+export default async function getRoadData(requestProps: any) {
   const response = await axios
-    .get("/data")
+    .post("/data", requestProps, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
     .then((res) => {
       console.log(res.data);
       return res.data;

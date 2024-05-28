@@ -30,6 +30,9 @@ function getColorCode(colorId: string) {
 }
 
 export function convertToGeoJson(originData: any) {
+  if (!originData) {
+    return null;
+  }
   return {
     type: "FeatureCollection",
     features: originData.roads.map((road: any) => ({
@@ -46,9 +49,9 @@ export function convertToGeoJson(originData: any) {
         },
         coordinates: [
           road.coords
-            .replace("MULTILINESTRING((", "")
+            .replace("MULTILINESTRING ((", "")
             .replace("))", "")
-            .split(",")
+            .split(", ")
             .map((coord: any) => coord.split(" ").map(Number)),
         ],
       },

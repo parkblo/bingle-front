@@ -6,7 +6,8 @@ export const axios = Axios.create({
 
 axios.interceptors.request.use(
   (config) => {
-    // config.headers[""] = ;
+    config.headers["ngrok-skip-browser-warning"] = "69420";
+    console.log(config.headers);
     return config;
   },
   (error) => {
