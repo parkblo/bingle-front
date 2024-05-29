@@ -28,9 +28,9 @@ function Dashboard() {
 
   const getTitle = () => {
     if (dataType.startsWith("NACH_")) {
-      return "Normalized Angular Choice";
+      return "Normalised Angular Choice";
     } else if (dataType.startsWith("NAIN_")) {
-      return "Normalized Angular Integration";
+      return "Normalised Angular Integration";
     } else if (dataType === "BUS_DISTANCE") {
       return "Bus Stop Distance";
     } else if (dataType === "SUBWAY_DISTANCE") {
@@ -42,6 +42,22 @@ function Dashboard() {
     }
   };
 
+  const getSubTitle = () => {
+    let subTitle = "";
+
+    if (dataType.startsWith("NACH_")) {
+      const baseRadius = dataType.split("_")[1].replace("R", "");
+      subTitle += `정규화 기준 반경: ${baseRadius} | `;
+    } else if (dataType.startsWith("NAIN_")) {
+      const baseRadius = dataType.split("_")[1].replace("R", "");
+      subTitle += `정규화 기준 반경: ${baseRadius} | `;
+    }
+
+    subTitle += `상위 ${topN}% 기준 | 평균: ${roadInfo.average}`;
+
+    return subTitle;
+  };
+
   return (
     <>
       <Button sx={styles.button} onClick={handleButtonClick}>
@@ -50,9 +66,7 @@ function Dashboard() {
       <Box sx={getDashboardStyle()}>
         {/* <Typography sx={styles.subTitle}>Dashboard</Typography> */}
         <Typography sx={styles.title}>{getTitle()}</Typography>
-        <Typography sx={styles.subTitle}>
-          상위 {topN}% 기준 | 평균: {roadInfo.average}
-        </Typography>
+        <Typography sx={styles.subTitle}>{getSubTitle()}</Typography>
         <MyResponsivePie />
       </Box>
     </>

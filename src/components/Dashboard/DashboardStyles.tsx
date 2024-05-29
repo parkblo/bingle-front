@@ -61,7 +61,7 @@ const styles = {
     },
   },
   subTitle: {
-    fontSize: "16px",
+    fontSize: "14px",
     color: "gray",
   },
   title: {
