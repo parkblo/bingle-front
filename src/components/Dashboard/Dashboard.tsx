@@ -5,6 +5,7 @@ import { Box, Button, Typography } from "@mui/material";
 import openicon from "assets/images/openicon.png";
 import closeicon from "assets/images/closeicon.png";
 import styles from "./DashboardStyles";
+import nodata from "assets/images/nodata.webp";
 
 import MyResponsivePie from "./PieChart";
 
@@ -64,10 +65,21 @@ function Dashboard() {
         <img src={getImageSrc()} style={styles.image} />
       </Button>
       <Box sx={getDashboardStyle()}>
-        {/* <Typography sx={styles.subTitle}>Dashboard</Typography> */}
-        <Typography sx={styles.title}>{getTitle()}</Typography>
-        <Typography sx={styles.subTitle}>{getSubTitle()}</Typography>
-        <MyResponsivePie />
+        {roadInfo.rangePercentage.length !== 0 ? (
+          <>
+            <Typography sx={styles.title}>{getTitle()}</Typography>
+            <Typography sx={styles.subTitle}>{getSubTitle()}</Typography>ß
+            <MyResponsivePie />
+          </>
+        ) : (
+          <>
+            <img src={nodata} style={styles.nodataImage} />
+            <Typography>도로 데이터가 표시되지 않았습니다.</Typography>
+            <Typography sx={styles.subTitle}>
+              우측 하단 버튼을 통해서 데이터 표시를 시작할 수 있어요.
+            </Typography>
+          </>
+        )}
       </Box>
     </>
   );
