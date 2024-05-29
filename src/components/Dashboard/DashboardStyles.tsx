@@ -68,6 +68,11 @@ const styles = {
     fontSize: "20px",
     fontWeight: "bold",
   },
+  nodataImage: {
+    height: "170px",
+    width: "170px",
+    marginBottom: "10px",
+  },
 };
 
 export default styles;
