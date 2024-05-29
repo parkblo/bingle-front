@@ -40,5 +40,20 @@
             "coords": "MULTILINESTRING((127.0748559872908 37.552017313704766,127.07489058915463 37.552329037052814))",
             "colorId": "XXX_COLOR_1"
         }
-    ]
+    ],
+    "info" : {
+        "average": "2.345",
+        "rangePercentage": [
+            {
+                "label": "1.314000-1.356999",
+                "percentage": "30.00%",
+                "colorId": "Traffic_color_1"
+            },
+            {
+                "label": "0.929000-0.971999",
+                "percentage": "70.00%",
+                "colorId": "Traffic_color_2"
+            }
+        ]
+    }
 }

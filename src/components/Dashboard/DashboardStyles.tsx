@@ -28,7 +28,8 @@ const styles = {
     top: "50%",
     left: "0",
     width: "400px",
-    height: "80%",
+    height: "70%",
+    paddingTop: "50px",
     backgroundColor: "white",
     transition: "transform 0.2s ease-in-out",
     transform: "translateX(-100%) translateY(-50%)",
@@ -44,7 +45,8 @@ const styles = {
       top: "50%",
       left: "50px",
       width: "400px",
-      height: "80%",
+      height: "70%",
+      paddingTop: "50px",
       backgroundColor: "white",
       transition: "transform 0.2s ease-in-out",
       transform: "translateX(0) translateY(-50%)",
@@ -57,6 +59,14 @@ const styles = {
       alignItems: "center",
       overflow: "auto",
     },
+  },
+  subTitle: {
+    fontSize: "16px",
+    color: "gray",
+  },
+  title: {
+    fontSize: "20px",
+    fontWeight: "bold",
   },
 };
 

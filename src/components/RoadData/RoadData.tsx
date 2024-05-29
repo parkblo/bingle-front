@@ -17,13 +17,12 @@ interface RequestProps {
 }
 
 interface RangePercentage {
-  start: number;
-  end: number;
-  percentage: number;
+  label: string;
+  percentage: string;
 }
 
 interface Info {
-  average: number;
+  average: string;
   rangePercentage: RangePercentage[];
 }
 
