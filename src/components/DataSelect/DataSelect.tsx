@@ -8,6 +8,7 @@ import { Divider, TextField } from "@mui/material";
 import styles from "./DataSelectStyles";
 import useStore from "components/Store/Store";
 import dataicon from "assets/images/dataicon.png";
+import ListSubheader from "@mui/material/ListSubheader";
 
 function DataSelect() {
   const { dataType, setDataType, topN, setTopN } = useStore((state) => state);
@@ -36,12 +37,36 @@ function DataSelect() {
         disableUnderline
         sx={styles.select}
       >
-        <MenuItem value={"NACH_R400M"}>NACH</MenuItem>
-        <MenuItem value={"NAIN_R400M"}>NAIN</MenuItem>
+        <ListSubheader sx={{ height: "36px", color: "gray" }}>
+          Normalised Angular Choice
+        </ListSubheader>
+        <MenuItem value={"NACH_R400M"}>NACH R400M</MenuItem>
+        <MenuItem value={"NAIN_R800M"}>NACH R800M</MenuItem>
+        <MenuItem value={"NACH_R1200M"}>NACH R1200M</MenuItem>
+        <MenuItem value={"NACH_R1600M"}>NACH R1600M</MenuItem>
+        <MenuItem value={"NACH_R2000M"}>NACH R2000M</MenuItem>
+        <MenuItem value={"NACH_R3000M"}>NACH R3000M</MenuItem>
+        <MenuItem value={"NACH_R5000M"}>NACH R5000M</MenuItem>
+        <ListSubheader sx={{ height: "36px", color: "gray" }}>
+          Normalised Angular Integration
+        </ListSubheader>
+        <MenuItem value={"NAIN_R400M"}>NAIN R400M</MenuItem>
+        <MenuItem value={"NAIN_R800M"}>NAIN R800M</MenuItem>
+        <MenuItem value={"NAIN_R1200M"}>NAIN R1200M</MenuItem>
+        <MenuItem value={"NAIN_R1600M"}>NAIN R1600M</MenuItem>
+        <MenuItem value={"NAIN_R2000M"}>NAIN R2000M</MenuItem>
+        <MenuItem value={"NAIN_R3000M"}>NAIN R3000M</MenuItem>
+        <MenuItem value={"NAIN_R5000M"}>NAIN R5000M</MenuItem>
+        <ListSubheader sx={{ height: "36px", color: "gray" }}>
+          대중교통 편의성
+        </ListSubheader>
         <MenuItem value={"BUS_DISTANCE"}>버스정류장 거리</MenuItem>
         <MenuItem value={"SUBWAY_DISTANCE"}>지하철 역 거리</MenuItem>
         <MenuItem value={"STN_AREA"}>역세권 여부</MenuItem>
-        <MenuItem value={"MAIN_SG"}>대표업종</MenuItem>
+        <ListSubheader sx={{ height: "36px", color: "gray" }}>
+          상권 분석
+        </ListSubheader>
+        <MenuItem value={"MAIN_SG"}>대표 업종</MenuItem>
       </Select>
       <Box sx={{ marginLeft: "20px" }}></Box>
       <Divider orientation="vertical" flexItem />
