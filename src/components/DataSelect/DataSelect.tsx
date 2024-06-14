@@ -79,6 +79,7 @@ function DataSelect() {
         onChange={handleFieldChange}
         type="number"
         sx={styles.inputArea}
+        disabled={dataType === "MAIN_SG" || dataType === "STN_AREA"}
       />
       <Box sx={styles.labelText}>%</Box>
     </Box>
