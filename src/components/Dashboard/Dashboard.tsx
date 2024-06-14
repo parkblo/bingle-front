@@ -54,8 +54,9 @@ function Dashboard() {
       subTitle += `정규화 기준 반경: ${baseRadius} | `;
     }
 
-    subTitle += `상위 ${topN}% 기준 | 평균: ${roadInfo.average}`;
-
+    if (dataType !== "STN_AREA" && dataType !== "MAIN_SG") {
+      subTitle += `상위 ${topN}% 기준 | 평균: ${roadInfo.average}`;
+    }
     return subTitle;
   };
 
@@ -65,10 +66,10 @@ function Dashboard() {
         <img src={getImageSrc()} style={styles.image} />
       </Button>
       <Box sx={getDashboardStyle()}>
-        {roadInfo.rangePercentage.length !== 0 ? (
+        {roadInfo.average !== 0 ? (
           <>
             <Typography sx={styles.title}>{getTitle()}</Typography>
-            <Typography sx={styles.subTitle}>{getSubTitle()}</Typography>ß
+            <Typography sx={styles.subTitle}>{getSubTitle()}</Typography>
             <MyResponsivePie />
           </>
         ) : (

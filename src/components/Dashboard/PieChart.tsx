@@ -9,54 +9,37 @@ const MyResponsivePie = () => {
   const [data, setData] = React.useState([]);
   //const data = usePieChartData();
 
-  /*
   React.useEffect(() => {
     async function convertToData(roadInfo: any) {
-      const newData = roadInfo.rangePercentage.map(
-        (item: any) => {
+      if (roadInfo.rangePercentages) {
+        let newData = roadInfo.rangePercentages.map((item: any) => {
           return {
             id: item.label,
-            label: item.label,
-            value: item.percentage,
-            color: "#F0F0F0", // TODO: color 서버가 보내주기.
+            label: item.label + " | " + item.percentage,
+            value: parseFloat(item.percentage.replace("%", "")),
+            color: getColorCode(item.colorId),
           };
-        }
-      );
+        });
 
-      setData(newData);
+        newData.sort((a: any, b: any) => {
+          const aId = Number(a.id.split("-")[0]);
+          const bId = Number(b.id.split("-")[0]);
+          return aId - bId;
+        });
+        setData(newData);
+        console.log(newData);
+      }
     }
 
+    console.log(roadInfo);
     convertToData(roadInfo);
   }, [roadInfo]);
-  */
-
-  // TEST WITH DUMMY
-  React.useEffect(() => {
-    async function convertToData(roadInfo: any) {
-      const newData = roadInfo.rangePercentage.map((item: any) => {
-        return {
-          id: item.label,
-          label: item.label + " | " + item.percentage,
-          value: parseFloat(item.percentage.replace("%", "")),
-          color: getColorCode(item.colorId), // TODO: color 서버가 보내주기.
-        };
-      });
-
-      setData(newData);
-    }
-
-    convertToData(dummy.info);
-  }, []);
-
-  const legendFormat = (d: any) => {
-    return d.value + d.id;
-  };
 
   return (
     // TODO: roaddata 없을 시 조건 추가
     <ResponsivePie
       data={data}
-      margin={{ top: -200, right: 120, bottom: 200, left: 120 }}
+      margin={{ top: -250, right: 120, bottom: 200, left: 120 }}
       colors={{ datum: "data.color" }}
       innerRadius={0.4}
       padAngle={0.7}
@@ -85,7 +68,7 @@ const MyResponsivePie = () => {
           direction: "column",
           justify: true,
           // translateX: -20,
-          translateY: -100,
+          translateY: 80,
           itemsSpacing: 9,
           itemWidth: 200,
           itemHeight: 15,
