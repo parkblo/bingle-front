@@ -18,3 +18,10 @@ https://github.com/user-attachments/assets/7cc47b14-bad6-4995-88c5-cd915bd48e72
 
 ## 기술 스택
 React, TypeScript, Zustand, MUI, Nivo
+
+## 유스케이스 다이어그램
+![capstone usecase-페이지-2](https://github.com/user-attachments/assets/d63ea12f-87a7-44db-aa3f-04796a07634a)
+
+
+## 시퀀스 다이어그램
+![class_diagram-시퀀스 다이어그램](https://github.com/user-attachments/assets/8a3d07f7-3ae8-47b4-a768-eba53db85532)
