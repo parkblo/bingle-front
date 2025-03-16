@@ -1,6 +1,6 @@
 ## 개요
 
-https://github.com/user-attachments/assets/7cc47b14-bad6-4995-88c5-cd915bd48e72
+![image](https://github.com/user-attachments/assets/f33520b6-2ac3-44d9-9577-b7d02353e6a0)
 
 - 데이터 기반 건축·도시 컨설팅사와 산학협력으로 진행된 캡스톤 프로젝트입니다. (2024-1 컴퓨터공학과 Capstone디자인)
 - 도시 입지 분석을 위해서, 통행량, 접근성과 같은 도로 데이터를 지도 위에 표시할 수 있고 데이터 통계를 파이 차트 형태로 제공하는 서비스입니다.
@@ -15,6 +15,10 @@ https://github.com/user-attachments/assets/7cc47b14-bad6-4995-88c5-cd915bd48e72
   - Flux 패턴을 바르게 도입하기 위해 Zustand를 사용했습니다.
 - GeoJSON을 토대로 네이버 지도 API를 통해 지도에 폴리라인을 표시합니다.
 - Nivo 그래프 라이브러리를 사용하여 표시된 정보를 토대로 파이 차트 형태의 통계를 제공합니다.
+
+## 데모 클립
+
+https://github.com/user-attachments/assets/7cc47b14-bad6-4995-88c5-cd915bd48e72
 
 ## 기술 스택
 React, TypeScript, Zustand, MUI, Nivo
